@@ -1,0 +1,36 @@
+.login-card {
+  width: 327px;
+  border-radius: 10px;
+  background-color: #161d2f;
+  padding: 24px;
+}
+.login-card > button {
+    color: white;
+    background-color: #fc4747;
+    height: 48px;
+    border-radius: 6px;
+}
+.login-card > span > a {
+  color: #fc4747;
+  font-size: 15px;
+  font-weight: 400;
+}
+.login-card > button:hover {
+    height: 48px;
+    background-color: #fff;
+    color: #161D2F;
+}
+input{
+    width: 100%;
+    background-color: transparent;
+    transition: border-bottom 0.3s ease-in-out;
+    border-bottom: 1px solid #5A698F;
+    padding-left: 16px;
+    padding-bottom: 18px;
+    caret-color: #fc4747;
+}
+input:focus{
+    outline: none;
+    color: white;
+    border-bottom: 1px solid #fff; 
+}
