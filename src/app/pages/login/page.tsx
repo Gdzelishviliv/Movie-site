@@ -1,19 +1,36 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image";
+import { signInWithEmailAndPassword,getAuth } from "firebase/auth";
+import {  loginInValidationSchema } from "@/app/utils/validation-shcheme";
+import { useRouter } from "next/navigation";
 import { useFormik } from "formik";
-import { SignupValidationSchema } from "@/app/utils/validation-shcheme";
+import { auth } from "../../config/firebase";
+import Image from "next/image";
 import "./login.css";
-import { string } from "yup";
+import { useSession } from "next-auth/react";
 
 export default function LoginPage() {
+
+  const router = useRouter();
+  const login = async (email: string, password: string) => {
+    console.log("Attempting login with:", email, password);
+    try {
+      console.log(email,password)
+      await signInWithEmailAndPassword(auth, email, password);
+      router.push("/");
+    } catch (error) {
+      console.error("Error during login:", error);
+    }
+  };
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
     },
-    validationSchema: SignupValidationSchema,
+    validationSchema: loginInValidationSchema,
     onSubmit: (values) => {
+      console.log(1)
+      login(values.email, values.password);
       console.log("Form submitted:", values);
     },
   });

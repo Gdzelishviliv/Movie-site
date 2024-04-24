@@ -1,4 +1,5 @@
 "use client";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useFormik } from "formik";
@@ -30,6 +31,7 @@ export default function SignUpPage() {
     },
     validationSchema: SignupValidationSchema,
     onSubmit: (values) => {
+      console.log(1)
       if(values.password!==values.repeatPassword){
         formik.setFieldError("repeatPassword", "Passwords do not match");
         return;

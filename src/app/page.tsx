@@ -1,23 +1,19 @@
 "use client";
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
-import { useSession } from 'next-auth/react';
+import { auth } from './config/firebase';
 
 export default function Home() {
   const router = useRouter();
-  const { data: session, status } = useSession();
 
   useEffect(() => {
-    if (status === 'unauthenticated') {
+    console.log(auth.currentUser);
+    if (!auth.currentUser) {
       router.push('/pages/login');
     }
-  }, [status, router]);
+  }, [router]);
 
-  if (status === 'loading') {
-    return <div>Loading...</div>;
-  }
-
-  if (session) {
+  {
     return (
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
         <h1>Welcome to the Home Page!</h1>
