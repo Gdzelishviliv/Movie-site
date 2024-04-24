@@ -1,11 +1,27 @@
 "use client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useFormik } from "formik";
 import { SignupValidationSchema } from "@/app/utils/validation-shcheme";
 import "../login/login.css";
 import Link from "next/link";
+import { auth } from "../../config/firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
-export default function LoginPage() {
+export default function SignUpPage() {
+ 
+  const router =useRouter();
+
+  const signUp = async (email:string,password:string) => {
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      console.log("User created successfully");
+      router.push("/")
+    } catch (error) {
+      console.error("Error during sign-up:", error);
+    }
+  };
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -14,7 +30,12 @@ export default function LoginPage() {
     },
     validationSchema: SignupValidationSchema,
     onSubmit: (values) => {
+      if(values.password!==values.repeatPassword){
+        formik.setFieldError("repeatPassword", "Passwords do not match");
+        return;
+      }
       console.log("Form submitted:", values);
+      signUp(values.email, values.password);
     },
   });
 
