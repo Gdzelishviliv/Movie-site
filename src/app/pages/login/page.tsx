@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useFormik } from "formik";
 import { SignupValidationSchema } from "@/app/utils/validation-shcheme";
 import "./login.css";
+import { string } from "yup";
 
 export default function LoginPage() {
   const formik = useFormik({
@@ -19,7 +20,9 @@ export default function LoginPage() {
 
   const { handleChange, handleSubmit, values, errors, touched } = formik;
 
-  const getErrorClass = (field: string) => (touched[field] && errors[field] ? 'input-error' : 'input');
+  const getErrorClass = (field: keyof typeof formik.values): string => {
+    return touched[field] && errors[field] ? "input-error" : "input";
+  };
 
   return (
     <form
@@ -37,10 +40,10 @@ export default function LoginPage() {
             placeholder="Email address"
             value={values.email}
             onChange={handleChange}
-            className={getErrorClass('email')}
+            className={getErrorClass("email")}
           />
           {touched.email && errors.email && (
-            <div className="error-text">{errors.email}</div>
+            <div key="email-error" className="error-text">{errors.email}</div>
           )}
           <input
             type="password"
@@ -49,7 +52,7 @@ export default function LoginPage() {
             placeholder="Password"
             value={values.password}
             onChange={handleChange}
-            className={getErrorClass('password')}
+            className={getErrorClass("password")}
           />
           {touched.password && errors.password && (
             <div className="error-text">{errors.password}</div>
