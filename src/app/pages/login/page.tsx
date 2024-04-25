@@ -7,7 +7,6 @@ import { useFormik } from "formik";
 import { auth } from "../../config/firebase";
 import Image from "next/image";
 import "./login.css";
-import { useSession } from "next-auth/react";
 
 export default function LoginPage() {
 
