@@ -21,10 +21,10 @@ export default function page() {
   }
 
   if (error) {
-    return <div>Error fetching movies: {error}</div>;
+    return <div>Error fetching movies</div>;
   }
   if (!data || !data.results) {
-    return <div>No data available.</div>; // Handle case when data is null or undefined
+    return <div>No data available.</div>;
   }
   return (
     <MainLayout>

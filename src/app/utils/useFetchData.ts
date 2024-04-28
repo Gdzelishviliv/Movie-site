@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { MovieData } from '..//types/type'; // Import your defined types
+import { MovieData } from '..//types/type';
 
 const useFetchData = (url: string) => {
-  const [data, setData] = useState<MovieData | null>(null); // Define the data type
+  const [data, setData] = useState<MovieData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
