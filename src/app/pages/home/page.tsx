@@ -23,6 +23,9 @@ export default function page() {
   if (error) {
     return <div>Error fetching movies: {error}</div>;
   }
+  if (!data || !data.results) {
+    return <div>No data available.</div>; // Handle case when data is null or undefined
+  }
   return (
     <MainLayout>
       <h2 className="text-white text-xl">Trending</h2>

@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
+import { MovieData } from '..//types/type'; // Import your defined types
 
-const useFetchData = (url:any) => {
-  const [data, setData] = useState(null);
+const useFetchData = (url: string) => {
+  const [data, setData] = useState<MovieData | null>(null); // Define the data type
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -13,10 +14,10 @@ const useFetchData = (url:any) => {
           throw new Error(`Error fetching data: ${response.statusText}`);
         }
         const result = await response.json();
-        setData(result);
-        setLoading(false);
+        setData(result as MovieData);
       } catch (err) {
-        setError(err);
+        setError(err as Error);
+      } finally {
         setLoading(false);
       }
     };
