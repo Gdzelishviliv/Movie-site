@@ -1,0 +1,42 @@
+.movie-name {
+  position: absolute;
+  color: #fff;
+  bottom: 16px;
+  left: 16px;
+}
+
+.custom-slide {
+  position: relative;
+  width: 250px !important;
+  padding: 10px;
+}
+
+.swiper-container {
+    max-width: 800px; /* Set a maximum width */
+    overflow: hidden; /* Prevent overflow issues */
+  }
+
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 10px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.swiper-slide:hover {
+  transform: scale(1.05);
+}
+
+.swiper-scrollbar {
+  background: rgba(241, 236, 236, 0.5);
+  height: 5px;
+}
+
+.Spinner {
+  color: white;
+  font-size: 2em;
+}

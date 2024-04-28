@@ -1,13 +1,13 @@
-import Header from '@/app/components/header/Header'
-import React from 'react'
+import React, { memo } from 'react';
+import Header from '@/app/components/header/Header';
 
-const MainLayout = ({children}:any) => {
+const MainLayout = ({ children }:any) => {
   return (
     <>
-    <Header/>
-    {children}
+      <Header />
+      {children}
     </>
-  )
-}
+  );
+};
 
-export default MainLayout
+export default memo(MainLayout);
