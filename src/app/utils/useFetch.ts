@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { MovieData } from '..//types/type';
+import { MovieData } from '../types/type';
 
 const useFetchData = (url: string) => {
   const [data, setData] = useState<MovieData | null>(null);

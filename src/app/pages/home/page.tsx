@@ -1,6 +1,6 @@
 "use client";
 import MainLayout from "@/app/layouts/mainLayout/MainLayout";
-import useFetchData from "@/app/utils/useFetchData";
+import useFetchData from "@/app/utils/useFetch";
 import { Spinner } from "@nextui-org/spinner";
 import Image from "next/image";
 import { Navigation, Scrollbar, A11y } from "swiper/modules";
