@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { MovieData } from '../types/type';
 
-const useFetchData = (url: string) => {
+const useFetch = (url: string) => {
   const [data, setData] = useState<MovieData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
@@ -28,4 +28,4 @@ const useFetchData = (url: string) => {
   return { data, loading, error };
 };
 
-export default useFetchData;
+export default useFetch;

@@ -10,3 +10,52 @@
 body{
   background-color: #10141E;
 }
+.movie-name {
+  position: absolute;
+  color: #fff;
+  bottom: 16px;
+  left: 16px;
+}
+
+.custom-slide {
+  position: relative;
+  width: 250px !important;
+  padding: 10px;
+}
+
+.swiper-container {
+    max-width: 800px; /* Set a maximum width */
+    overflow: hidden; /* Prevent overflow issues */
+  }
+
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 10px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.swiper-slide:hover {
+  transform: scale(1.05);
+}
+
+.swiper-scrollbar {
+  background: #161D2F!important;
+  height: 5px;
+  bottom: 0px!important;
+}
+.swiper-horizontal{
+  height: 375px!important;
+}
+.Spinner {
+  color: white;
+  font-size: 2em;
+}
+.swiper-button-prev, .swiper-button-next{
+  color:#fff!important;
+  cursor: pointer!important;
+}

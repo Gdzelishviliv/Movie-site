@@ -16,7 +16,7 @@ export default function LoginPage() {
     try {
       console.log(email,password)
       await signInWithEmailAndPassword(auth, email, password);
-      router.push("/pages/home");
+      router.push("/");
     } catch (error) {
       console.error("Error during login:", error);
     }

@@ -1,8 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    images: {
-        domains: ['image.tmdb.org'], // Added allowed external hostnames here
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "image.tmdb.org",
+        port: "",
+        pathname: "/**", 
       },
+    ],
+  },
 };
 
 export default nextConfig;

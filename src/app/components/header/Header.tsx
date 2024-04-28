@@ -14,13 +14,13 @@ const Header = () => {
 
   return (
     <div className='header-container flex justify-between'>
-      <Link href="/pages/home">
+      <Link href="/">
         <Image src="/assets/Movie.svg" alt='site logo' width={25} height={20}/>
       </Link>
       <div>
         <ul className='flex gap-10'>
-          <Link href="/pages/home" onClick={() => handleLinkClick('/pages/home')}>
-            <button className={`home-btn ${activeLink === '/pages/home' ? 'focused' : ''}`}></button>
+          <Link href="/" onClick={() => handleLinkClick('/')}>
+            <button className={`home-btn ${activeLink === '/' ? 'focused' : ''}`}></button>
           </Link>
           <Link href="/pages/movies" onClick={() => handleLinkClick('/pages/movies')}>
             <button className={`movie-btn ${activeLink === '/pages/movies' ? 'focused' : ''}`}></button>

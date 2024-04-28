@@ -1,4 +1,4 @@
-.movie-name {
+/* .movie-name {
   position: absolute;
   color: #fff;
   bottom: 16px;
@@ -12,8 +12,8 @@
 }
 
 .swiper-container {
-    max-width: 800px; /* Set a maximum width */
-    overflow: hidden; /* Prevent overflow issues */
+    max-width: 800px; 
+    overflow: hidden; 
   }
 
 .swiper-slide {
@@ -46,4 +46,4 @@
 .swiper-button-prev, .swiper-button-next{
   color:#fff!important;
   cursor: pointer!important;
-}
+} */
