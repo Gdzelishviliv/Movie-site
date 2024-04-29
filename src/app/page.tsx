@@ -12,6 +12,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/scrollbar";
+import Recomendations from "./components/recomended/Recomendations";
 export default function Home() {
   const router = useRouter();
 
@@ -41,7 +42,8 @@ export default function Home() {
     return (
       <main>
         <MainLayout>
-          <h2 className="text-white text-xl">Trending</h2>
+          <input className="search-input" type="search" name="search" id="search" placeholder="Search for movies or TV series" />
+          <h2 className="text-white text-xl px-4">Trending</h2>
           <Swiper
             modules={[Navigation, Scrollbar, A11y]}
             spaceBetween={8}
@@ -50,6 +52,20 @@ export default function Home() {
             scrollbar={{ draggable: true }}
             onSwiper={(swiper) => console.log(swiper)}
             onSlideChange={() => console.log("slide change")}
+            breakpoints={{
+              375: {
+                slidesPerView:1.5,
+                spaceBetween: 15,
+              },
+              600: {
+                slidesPerView: 3.5,
+                spaceBetween: 15,
+              },
+              1280: {
+                slidesPerView: 5.8,
+                spaceBetween: 8,
+              },
+            }}
           >
             <div className="flex">
               {data.results.map((movie: any) => (
@@ -70,6 +86,8 @@ export default function Home() {
               ))}
             </div>
           </Swiper>
+          <h1 className="text-white text-xl px-4 my-6">Recommended for you</h1>
+          <Recomendations/>
         </MainLayout>
       </main>
     );

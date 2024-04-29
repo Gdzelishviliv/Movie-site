@@ -1,0 +1,8 @@
+.recomendations{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 15px;
+}
+.movie-title{
+   color: #fff;
+}
