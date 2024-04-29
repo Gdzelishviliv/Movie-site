@@ -13,7 +13,7 @@ const Header = () => {
   };
 
   return (
-    <div className='header-container flex justify-between'>
+    <div className='header-container sticky-header flex justify-between'>
       <Link href="/">
         <Image src="/assets/Movie.svg" alt='site logo' width={25} height={20}/>
       </Link>
