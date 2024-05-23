@@ -2,14 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-body{
-  background-color: #10141E;
+
+body {
+  background-color: #10141e;
 }
+
 .movie-name {
   position: absolute;
   color: #fff;
@@ -24,51 +26,46 @@ body{
 }
 
 .swiper-container {
-    max-width: 800px; /* Set a maximum width */
-    overflow: hidden; /* Prevent overflow issues */
-  }
+  max-width: 800px;
+  overflow: hidden;
+}
 
 .swiper-slide {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   padding: 10px;
   border-radius: 10px;
-  transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
-.swiper-slide:hover {
-  transform: scale(1.05);
-}
-
-.swiper-scrollbar {
-  background: #161D2F!important;
-  height: 5px;
-  bottom: 0px!important;
-}
-.swiper-horizontal{
-  height:auto!important;
+.swiper-horizontal {
+  height: auto !important;
   width: 100% !important;
 }
+
 .Spinner {
   color: white;
   font-size: 2em;
 }
-.swiper-button-prev, .swiper-button-next{
-  color:#fff!important;
-  cursor: pointer!important;
+.swiper-button-prev,
+.swiper-button-next {
+  color: #fff !important;
+  cursor: pointer !important;
 }
-.search-input{
+
+.search-input {
   border: 0px;
   margin-top: 15px;
   padding-inline: 16px;
 }
-.swiper-wrapper{
+
+.swiper-wrapper {
   padding-inline: 10px;
   margin-top: 16px;
 }
-.swiper-slide{
+
+.swiper-slide {
   margin: 0px !important;
 }

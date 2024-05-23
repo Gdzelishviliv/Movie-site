@@ -1,7 +1,9 @@
 .recomendations{
     display: grid;
     grid-template-columns: auto auto;
+    justify-content: center;
     gap: 15px;
+    padding-inline: 16px;
 }
 .movie-title{
    color: #fff;

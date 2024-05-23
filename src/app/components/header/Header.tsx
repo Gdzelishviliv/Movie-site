@@ -15,7 +15,7 @@ const Header = () => {
   return (
     <div className='header-container sticky-header flex justify-between'>
       <Link href="/">
-        <Image src="/assets/Movie.svg" alt='site logo' width={25} height={20}/>
+        <Image src="/assets/Movie.svg" alt='site logo' width={25} height={20} style={{ width: "auto", height: "auto" }}/>
       </Link>
       <div>
         <ul className='flex gap-10'>

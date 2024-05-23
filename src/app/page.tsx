@@ -5,14 +5,15 @@ import { auth } from "./config/firebase";
 import MainLayout from "@/app/layouts/mainLayout/MainLayout";
 import useFetch from "@/app/utils/useFetch";
 import Image from "next/image";
-import { Navigation, Scrollbar, A11y } from "swiper/modules";
-import "./globals.css"
+import { EffectCoverflow, Navigation, Pagination } from "swiper/modules";
+import "./globals.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 import Recomendations from "./components/recomended/Recomendations";
+
 export default function Home() {
   const router = useRouter();
 
@@ -38,34 +39,35 @@ export default function Home() {
     return <div>No data available.</div>;
   }
 
+  const middleSlideIndex = Math.floor(data.results.length / 2);
+
   {
     return (
       <main>
         <MainLayout>
-          <input className="search-input" type="search" name="search" id="search" placeholder="Search for movies or TV series" />
+          <input
+            className="search-input"
+            type="search"
+            name="search"
+            id="search"
+            placeholder="Search for movies or TV series"
+          />
           <h2 className="text-white text-xl px-4">Trending</h2>
           <Swiper
-            modules={[Navigation, Scrollbar, A11y]}
-            spaceBetween={8}
-            slidesPerView={5.8}
-            navigation
-            scrollbar={{ draggable: true }}
-            onSwiper={(swiper) => console.log(swiper)}
-            onSlideChange={() => console.log("slide change")}
-            breakpoints={{
-              375: {
-                slidesPerView:1.5,
-                spaceBetween: 15,
-              },
-              600: {
-                slidesPerView: 3.5,
-                spaceBetween: 15,
-              },
-              1280: {
-                slidesPerView: 5.8,
-                spaceBetween: 8,
-              },
+            effect={"coverflow"}
+            navigation={true}
+            centeredSlides={true}
+            slidesPerView={"auto"}
+            initialSlide={middleSlideIndex}
+            coverflowEffect={{
+              rotate: 15,
+              stretch: -20,
+              depth: 100,
+              modifier: 1,
+              slideShadows: true,
             }}
+            modules={[Navigation, EffectCoverflow]}
+            className="mySwiper"
           >
             <div className="flex">
               {data.results.map((movie: any) => (
@@ -87,7 +89,7 @@ export default function Home() {
             </div>
           </Swiper>
           <h1 className="text-white text-xl px-4 my-6">Recommended for you</h1>
-          <Recomendations/>
+          <Recomendations />
         </MainLayout>
       </main>
     );
