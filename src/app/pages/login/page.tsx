@@ -7,38 +7,57 @@ import { useFormik } from "formik";
 import { auth } from "../../config/firebase";
 import Image from "next/image";
 import "./login.css";
-import { useState } from "react"; // Import useState
+import { useState } from "react";
 
 export default function LoginPage() {
   const router = useRouter();
-  const [errorMessage, setErrorMessage] = useState(""); // State for error messages
+  const [errorMessage, setErrorMessage] = useState("");
 
   const login = async (email: string, password: string) => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      // Check if user is authenticated and redirect accordingly
       if (userCredential.user) {
-        // Here, you can add additional logic to check user roles or permissions if needed
-        router.push("/"); // Redirect to home on successful login
+        router.push("/"); 
       }
     } catch (error) {
-      console.error("Error during login:", error);
-      setErrorMessage("Invalid email or password. Please try again."); // Set error message
+      console.error("Error during login:", error); // Log the entire error object
+      let message = "An unexpected error occurred. Please try again."; 
+      if (error && typeof error === "object" && 'code' in error) {
+        const errorCode = (error as any).code; // Accessing the code property
+        
+        switch (errorCode) {
+          case 'auth/user-not-found':
+            message = "No user found with this email.";
+            break;
+          case 'auth/wrong-password':
+            message = "Incorrect password. Please try again.";
+            break;
+          // Add more cases if needed
+          default:
+            message = "An unexpected error occurred. Please try again.";
+        }
+      }
+  
+      setErrorMessage(message); // Set the determined error message
     }
   };
+  
 
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
     },
-    validationSchema: loginInValidationSchema,
+    validationSchema: loginInValidationSchema, // Make sure this schema is set up for immediate validation
+    validateOnChange: true, // This enables validation on each input change
+    validateOnBlur: true, // This enables validation when the input loses focus
     onSubmit: (values) => {
+      setErrorMessage("");
       login(values.email, values.password);
     },
   });
 
-  const { handleChange, handleSubmit, values, errors, touched } = formik;
+  const { handleChange, handleBlur, handleSubmit, values, errors, touched } = formik;
 
   const getErrorClass = (field: keyof typeof formik.values): string => {
     return touched[field] && errors[field] ? "input-error" : "input";
@@ -49,7 +68,7 @@ export default function LoginPage() {
       <Image src="/assets/Movie.svg" alt="Logo" width={32} height={25} />
       <div className="login-card flex flex-col gap-10">
         <h1 className="text-white text-3xl">Login</h1>
-        {errorMessage && <div className="error-text">{errorMessage}</div>} {/* Display error message */}
+        {errorMessage && <div className="error-text">{errorMessage}</div>}
         <div className="flex flex-col gap-5">
           <input
             type="email"
@@ -58,9 +77,14 @@ export default function LoginPage() {
             placeholder="Email address"
             value={values.email}
             onChange={handleChange}
+            onBlur={handleBlur}
             className={getErrorClass("email")}
           />
-          {touched.email && errors.email && <div key="email-error" className="error-text">{errors.email}</div>}
+          {touched.email && errors.email && (
+            <div key="email-error" className="error-text">
+              {errors.email}
+            </div>
+          )}
           <input
             type="password"
             name="password"
@@ -68,9 +92,12 @@ export default function LoginPage() {
             placeholder="Password"
             value={values.password}
             onChange={handleChange}
+            onBlur={handleBlur}
             className={getErrorClass("password")}
           />
-          {touched.password && errors.password && <div className="error-text">{errors.password}</div>}
+          {touched.password && errors.password && (
+            <div className="error-text">{errors.password}</div>
+          )}
         </div>
         <button type="submit">Login to your account</button>
         <span className="text-white text-base text-center">

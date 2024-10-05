@@ -1,35 +1,31 @@
-"use client"
-import React, { useState, memo } from 'react';
+"use client";
+import React, { memo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import './header.css';
 
 const Header = () => {
-  
-  const [activeLink, setActiveLink] = useState('/pages/home');
-
-  const handleLinkClick = (link:any) => {
-    setActiveLink(link);
-  };
+  const pathname = usePathname();
 
   return (
     <div className='header-container sticky-header flex justify-between'>
-      <Link href="/">
+      <Link href="/" passHref>
         <Image src="/assets/Movie.svg" alt='site logo' width={25} height={20} style={{ width: "auto", height: "auto" }}/>
       </Link>
       <div>
         <ul className='flex gap-10'>
-          <Link href="/" onClick={() => handleLinkClick('/')}>
-            <button className={`home-btn ${activeLink === '/' ? 'focused' : ''}`}></button>
+          <Link href="/" passHref>
+            <button className={`home-btn ${pathname === '/' ? 'focused' : ''}`}></button>
           </Link>
-          <Link href="/pages/movies" onClick={() => handleLinkClick('/pages/movies')}>
-            <button className={`movie-btn ${activeLink === '/pages/movies' ? 'focused' : ''}`}></button>
+          <Link href="/pages/movies" passHref>
+            <button className={`movie-btn ${pathname === '/pages/movies' ? 'focused' : ''}`}></button>
           </Link>
-          <Link href="/pages/tv-series" onClick={() => handleLinkClick('/pages/tv-series')}>
-            <button className={`series-btn ${activeLink === '/pages/tv-series' ? 'focused' : ''}`}></button>
+          <Link href="/pages/tv-series" passHref>
+            <button className={`series-btn ${pathname === '/pages/tv-series' ? 'focused' : ''}`}></button>
           </Link>
-          <Link href="/pages/bookmarks" onClick={() => handleLinkClick('/pages/bookmarks')}>
-            <button className={`bookmark-btn ${activeLink === '/pages/bookmarks' ? 'focused' : ''}`}></button>
+          <Link href="/pages/bookmarks" passHref>
+            <button className={`bookmark-btn ${pathname === '/pages/bookmarks' ? 'focused' : ''}`}></button>
           </Link>
         </ul>
       </div>

@@ -1,55 +1,55 @@
-.header-container{
-    background-color: #161D2F;
-    height: 56px;
-    align-items: center;
-    padding-inline: 16px;
+.header-container {
+  background-color: #161d2f;
+  height: 56px;
+  align-items: center;
+  padding-inline: 16px;
 }
-.home-btn{
-    background-image: url(../../../../public//assets/home-btn.svg);
-    background-repeat: no-repeat;
-    width: 16px;
-    height: 16px;
-    cursor: pointer;
+.home-btn {
+  background-image: url(../../../../public//assets/home-btn.svg);
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
 }
-.movie-btn{
-    background-image: url(../../../../public//assets/movies.svg);
-    background-repeat: no-repeat;
-    width: 16px;
-    height: 16px;
-    cursor: pointer;
+.movie-btn {
+  background-image: url(../../../../public//assets/movies.svg);
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
 }
-.series-btn{
-    background-image: url(../../../../public//assets/tv-series.svg);
-    background-repeat: no-repeat;
-    width: 16px;
-    height: 16px;
-    cursor: pointer;
+.series-btn {
+  background-image: url(../../../../public//assets/tv-series.svg);
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
 }
-.bookmark-btn{
-    background-image: url(../../../../public//assets/bookmark.svg);
-    background-repeat: no-repeat;
-    width: 16px;
-    height: 16px;
-    cursor: pointer;
+.bookmark-btn {
+  background-image: url(../../../../public//assets/bookmark.svg);
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
 }
-.home-btn:focus{
-    background-image: url(../../../../public//assets/home-focus.svg);
+.home-btn.focused {
+  background-image: url(../../../../public//assets/home-focus.svg);
 }
-.movie-btn:focus{
-    background-image: url(../../../../public//assets/movies-focus.svg);
+.movie-btn.focused {
+  background-image: url(../../../../public//assets/movies-focus.svg);
 }
-.series-btn:focus{
-    background-image: url(../../../../public//assets/tv-series-focus.svg);
+.series-btn.focused {
+  background-image: url(../../../../public//assets/tv-series-focus.svg);
 }
-.bookmark-btn:focus{
-    background-image: url(../../../../public//assets/bookmark-focus.svg);
+.bookmark-btn.focused {
+  background-image: url(../../../../public//assets/bookmark-focus.svg);
 }
 
-ul>a{
-    height: 16px;
+ul > a {
+  height: 16px;
 }
 .sticky-header {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-  }
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
