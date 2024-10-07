@@ -1,10 +1,16 @@
-.recomendations{
-    display: grid;
-    grid-template-columns: auto auto;
-    justify-content: center;
-    gap: 15px;
-    padding-inline: 16px;
+.recomendations {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: center;
+  gap: 15px;
+  padding-inline: 16px;
 }
-.movie-title{
-   color: #fff;
+.movie-title {
+  color: #fff;
 }
+/* img {
+  border-radius: 8px;
+  width: 164px;
+  height: 110px;
+  flex-shrink: 0;
+} */
