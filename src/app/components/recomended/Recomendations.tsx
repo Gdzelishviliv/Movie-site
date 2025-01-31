@@ -1,9 +1,8 @@
 import useFetch from "@/app/utils/useFetch";
 import Image from "next/image";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./recomendations.css";
-import Link from "next/link";
-import {motion} from "framer-motion";
+import { motion } from "framer-motion";
 
 const Recomendations = () => {
   const [page, setPage] = useState(1);
@@ -23,47 +22,45 @@ const Recomendations = () => {
     if (newPage > 0 && newPage <= data.total_pages) {
       setPage(newPage);
     }
-  }
+  };
   console.log(data);
 
   return (
       <div>
-        <Link href='/pages/movie' passHref>
-          <div className="recomendations">
-            {data.results.map((movie: any) => (
-                <motion.div
-                    key={movie.id}
-                    className="movie-div"
-                    style={{ position: 'relative', width: '100%', height: '100%' }}
+        <div className="recomendations">
+          {data.results.map((movie: any) => (
+              <motion.div
+                  key={movie.id}
+                  className="movie-div"
+                  style={{ position: "relative", width: "100%", height: "100%" }}
+                  whileHover={{
+                    scale: 1.05,
+                    transition: { duration: 0.3 },
+                  }}
+              >
+                <Image
+                    className="rounded-lg"
+                    src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                    alt=""
+                    width={164}
+                    height={110}
+                />
+                <div>
+              <span className="text-[#FFFFFF] opacity-75 text-[11px]">
+                {new Date(movie.release_date).getFullYear()}
+              </span>
+                </div>
+                <motion.span
+                    className="movie-title cursor-pointer truncate block w-[150px] sm:w-[180px] md:w-[200px] lg:w-[220px] xl:w-[250px] text-[#FFFFFF] opacity-75 text-[14px] font-bold"
                     whileHover={{
-                      scale: 1.05,
                       transition: { duration: 0.3 },
                     }}
                 >
-                  <Image
-                      className="rounded-lg"
-                      src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                      alt=""
-                      width={164}
-                      height={110}
-                  />
-                  <div>
-          <span className="text-[#FFFFFF] opacity-75 text-[11px]">
-            {new Date(movie.release_date).getFullYear()}
-          </span>
-                  </div>
-                  <motion.span
-                      className="movie-title"
-                      whileHover={{
-                        transition: { duration: 0.3 },
-                      }}
-                  >
-                    {movie.title}
-                  </motion.span>
-                </motion.div>
-            ))}
-          </div>
-        </Link>
+                  {movie.title}
+                </motion.span>
+              </motion.div>
+          ))}
+        </div>
         <div className={"pagination mb-[30px]"}>
           <button
               className="page-button transition-all duration-500 hover:bg-[#FC4747] active:scale-95 focus:outline-none"
@@ -82,7 +79,6 @@ const Recomendations = () => {
           </button>
         </div>
       </div>
-
   );
 };
 
