@@ -5,12 +5,39 @@
   gap: 15px;
   padding-inline: 16px;
 }
-.movie-title {
-  color: #fff;
+.movie-div:hover .movie-title{
+  color:#FF5733;
 }
+.movie-title {
+  color: #ffffff;
+  transition: color 0.7s ease;
+}
+
 /* img {
   border-radius: 8px;
   width: 164px;
   height: 110px;
   flex-shrink: 0;
 } */
+.pagination {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.page-button {
+  background-color: #FC4747;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.page-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+

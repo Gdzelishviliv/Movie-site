@@ -95,17 +95,19 @@ export default function SignUpPage() {
         <h1 className="text-white text-3xl">Sign Up</h1>
         {errorMessage && <div className="error-text">{errorMessage}</div>} {/* Display error message */}
         <div className="flex flex-col gap-5">
-          <input
-            type="email"
-            name="email"
-            placeholder="Email address"
-            value={values.email}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            className={getErrorClass("email")}
-          />
-          {touched.email && errors.email && <div className="error-text">{errors.email}</div>}
-
+          <div className={"relative"}>
+             <input
+               type="email"
+               name="email"
+               placeholder="Email address"
+               value={values.email}
+               onChange={handleChange}
+               onBlur={handleBlur}
+               className={getErrorClass("email")}
+             />
+               {touched.email && errors.email && <div className="error-text absolute right-0 top-1">{errors.email}</div>}
+          </div>
+          <div className={"relative"}>
           <input
             type="password"
             name="password"
@@ -115,7 +117,8 @@ export default function SignUpPage() {
             onBlur={handleBlur}
             className={getErrorClass("password")}
           />
-          {touched.password && errors.password && <div className="error-text">{errors.password}</div>}
+          {touched.password && errors.password && <div className="error-text absolute right-0 top-1">{errors.password}</div>}
+          </div>
 
           <input
             type="password"

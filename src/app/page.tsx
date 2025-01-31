@@ -8,7 +8,6 @@ import Image from "next/image";
 import { EffectCoverflow, Navigation, Pagination } from "swiper/modules";
 import "./globals.css";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/scrollbar";
@@ -46,18 +45,18 @@ export default function Home() {
       <main>
         <MainLayout>
           <input
-            className="search-input"
-            type="search"
-            name="search"
-            id="search"
-            placeholder="Search for movies or TV series"
+              className="search-input border-white focus:border-[#FC4747] focus:ring-0 transition-colors duration-700"
+              type="search"
+              name="search"
+              id="search"
+              placeholder="Search for movies or TV series"
           />
-          <h2 className="text-white text-xl px-4">Trending</h2>
+          <h2 className="text-white text-xl px-4 mt-6">Trending</h2>
           <Swiper
-            effect={"coverflow"}
-            navigation={true}
-            centeredSlides={true}
-            slidesPerView={"auto"}
+              effect={"coverflow"}
+              navigation={true}
+              centeredSlides={true}
+              slidesPerView={"auto"}
             initialSlide={middleSlideIndex}
             coverflowEffect={{
               rotate: 15,

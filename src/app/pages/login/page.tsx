@@ -34,7 +34,7 @@ export default function LoginPage() {
             break;
           // Add more cases if needed
           default:
-            message = "An unexpected error occurred. Please try again.";
+            message = "Email or assword is incorrect. Please try again.";
         }
       }
   
@@ -70,34 +70,40 @@ export default function LoginPage() {
         <h1 className="text-white text-3xl">Login</h1>
         {errorMessage && <div className="error-text">{errorMessage}</div>}
         <div className="flex flex-col gap-5">
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="Email address"
-            value={values.email}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            className={getErrorClass("email")}
-          />
-          {touched.email && errors.email && (
-            <div key="email-error" className="error-text">
-              {errors.email}
-            </div>
-          )}
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Password"
-            value={values.password}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            className={getErrorClass("password")}
-          />
-          {touched.password && errors.password && (
-            <div className="error-text">{errors.password}</div>
-          )}
+          <div className={"relative"}>
+             <input
+               type="email"
+               name="email"
+               id="email"
+               placeholder="Email address"
+               autoComplete={"off"}
+               value={values.email}
+               onChange={handleChange}
+               onBlur={handleBlur}
+               className={getErrorClass("email")}
+             />
+             {touched.email && errors.email && (
+               <div key="email-error" className="error-text absolute right-0 top-1">
+                 {errors.email}
+               </div>
+             )}
+          </div>
+          <div className={"relative"}>
+            <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+                autoComplete={"off"}
+                value={values.password}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className={getErrorClass("password")}
+            />
+            {touched.password && errors.password && (
+                <div className="error-text absolute right-0 top-1">{errors.password}</div>
+            )}
+          </div>
         </div>
         <button type="submit">Login to your account</button>
         <span className="text-white text-base text-center">

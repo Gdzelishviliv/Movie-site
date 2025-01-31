@@ -56,9 +56,9 @@ body {
 }
 
 .search-input {
-  border: 0px;
   margin-top: 15px;
   padding-inline: 16px;
+  height: 40px;
 }
 
 .swiper-wrapper {
@@ -67,5 +67,5 @@ body {
 }
 
 .swiper-slide {
-  margin: 0px !important;
+  margin: 0 !important;
 }
