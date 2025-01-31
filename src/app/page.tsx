@@ -12,6 +12,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 import Recomendations from "./components/recomended/Recomendations";
+import Effect from "./layouts/enteranceAnimation/enteranceAnimation";
+import CustomCursor from "@/app/components/customCursor/customCursor";
 
 export default function Home() {
   const router = useRouter();
@@ -43,6 +45,8 @@ export default function Home() {
   {
     return (
       <main>
+        <Effect/>
+        <CustomCursor/>
         <MainLayout>
           <input
               className="search-input border-white focus:border-[#FC4747] focus:ring-0 transition-colors duration-700"

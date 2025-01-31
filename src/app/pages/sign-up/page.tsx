@@ -8,7 +8,9 @@ import Link from "next/link";
 import { auth } from "../../config/firebase";
 import { createUserWithEmailAndPassword, fetchSignInMethodsForEmail } from "firebase/auth";
 import { FirebaseError } from "firebase/app";
-import { useState } from "react"; // Import useState
+import {useState} from "react";
+import Effect from "@/app/layouts/enteranceAnimation/enteranceAnimation";
+import CustomCursor from "@/app/components/customCursor/customCursor"; // Import useState
 
 export default function SignUpPage() {
   const router = useRouter();
@@ -89,7 +91,10 @@ export default function SignUpPage() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col items-center h-lvh justify-center gap-14">
+
+      <form onSubmit={handleSubmit} className="flex flex-col items-center h-lvh justify-center gap-14">
+        <Effect/>
+        <CustomCursor/>
       <Image src="/assets/Movie.svg" alt="Logo" width={32} height={25} />
       <div className="login-card flex flex-col gap-10">
         <h1 className="text-white text-3xl">Sign Up</h1>

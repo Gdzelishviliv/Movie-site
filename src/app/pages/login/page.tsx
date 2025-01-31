@@ -8,6 +8,8 @@ import { auth } from "../../config/firebase";
 import Image from "next/image";
 import "./login.css";
 import { useState } from "react";
+import Effect from "@/app/layouts/enteranceAnimation/enteranceAnimation";
+import CustomCursor from "@/app/components/customCursor/customCursor";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -65,6 +67,8 @@ export default function LoginPage() {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col items-center h-lvh justify-center gap-14">
+      <Effect/>
+      <CustomCursor/>
       <Image src="/assets/Movie.svg" alt="Logo" width={32} height={25} />
       <div className="login-card flex flex-col gap-10">
         <h1 className="text-white text-3xl">Login</h1>
