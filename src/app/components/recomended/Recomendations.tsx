@@ -3,9 +3,11 @@ import Image from "next/image";
 import React, { useState } from "react";
 import "./recomendations.css";
 import { motion } from "framer-motion";
+import {useCustomCursor} from "@/app/components/customCursor/customCursor";
 
 const Recomendations = () => {
   const [page, setPage] = useState(1);
+  const {onMouseEnter,onMouseLeave}=useCustomCursor()
   const { data, loading, error } = useFetch(
       `https://api.themoviedb.org/3/movie/top_rated?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US&page=${page}`
   );
@@ -55,6 +57,8 @@ const Recomendations = () => {
                     whileHover={{
                       transition: { duration: 0.3 },
                     }}
+                    onMouseEnter={onMouseEnter}
+                    onMouseLeave={onMouseLeave}
                 >
                   {movie.title}
                 </motion.span>
