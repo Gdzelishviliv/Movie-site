@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import "./recomendations.css";
 import { motion } from "framer-motion";
 import {useCustomCursor} from "@/app/components/customCursor/customCursor";
+import HoverWrapper from "@/app/components/customCursor/howerWrapper";
 
 const Recomendations = () => {
   const [page, setPage] = useState(1);
@@ -52,16 +53,14 @@ const Recomendations = () => {
                 {new Date(movie.release_date).getFullYear()}
               </span>
                 </div>
-                <motion.span
-                    className="movie-title cursor-pointer truncate block w-[150px] sm:w-[180px] md:w-[200px] lg:w-[220px] xl:w-[250px] text-[#FFFFFF] opacity-75 text-[14px] font-bold"
-                    whileHover={{
-                      transition: { duration: 0.3 },
-                    }}
-                    onMouseEnter={onMouseEnter}
-                    onMouseLeave={onMouseLeave}
-                >
-                  {movie.title}
-                </motion.span>
+                  <motion.span
+                      className="movie-title hower:text-white cursor-pointer truncate block w-[150px] sm:w-[180px] md:w-[200px] lg:w-[220px] xl:w-[250px] text-[#FFFFFF] opacity-75 text-[14px] font-bold"
+                      whileHover={{
+                        transition: {duration: 0.3},
+                      }}
+                  >
+                    {movie.title}
+                  </motion.span>
               </motion.div>
           ))}
         </div>

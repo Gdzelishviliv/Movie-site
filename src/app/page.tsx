@@ -14,6 +14,7 @@ import "swiper/css/scrollbar";
 import Recomendations from "./components/recomended/Recomendations";
 import Effect from "./layouts/enteranceAnimation/enteranceAnimation";
 import CustomCursor from "@/app/components/customCursor/customCursor";
+import HowerWrapper from "@/app/components/customCursor/howerWrapper";
 
 export default function Home() {
   const router = useRouter();
@@ -91,7 +92,11 @@ export default function Home() {
               ))}
             </div>
           </Swiper>
-          <h1 className="text-white text-xl px-4 my-6">Recommended for you</h1>
+          <HowerWrapper>
+            <h1 className="hover:text-white z-50 text-[#FC4747] duration-700 text-[18px] lg:text-[20px] xl:text-[22px] absolute">Recommended
+              for you</h1>
+          </HowerWrapper>
+
           <Recomendations />
         </MainLayout>
       </main>
