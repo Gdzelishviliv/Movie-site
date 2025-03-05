@@ -2,7 +2,7 @@ import * as Yup from 'yup';
 
 export const SignupValidationSchema = Yup.object().shape({
   email: Yup.string()
-    .matches(/^[a-zA-Z0-9._%+-]+@gmail.com$/, 'Must be a valid Gmail address')
+    .matches(/^[a-zA-Z0-9._%+-]+@gmail.com$/, 'Enter a valid Gmail address')
     .required('Can’t be empty'),
   
   password: Yup.string()
@@ -16,7 +16,7 @@ export const SignupValidationSchema = Yup.object().shape({
 
 export const loginInValidationSchema= Yup.object().shape({
   email: Yup.string()
-    .matches(/^[a-zA-Z0-9._%+-]+@gmail.com$/, 'Must be a valid Gmail address')
+    .matches(/^[a-zA-Z0-9._%+-]+@gmail.com$/, 'Enter a valid Gmail address.')
     .required('Can’t be empty'),
   
   password: Yup.string()
