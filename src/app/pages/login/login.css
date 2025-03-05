@@ -22,8 +22,9 @@
 }
 input {
   width: 100%;
-  color: #fff;
-  background-color: transparent;
+  color: #fff !important;
+  background-color: transparent !important;
+  appearance: none;
   transition: border-bottom 0.3s ease-in-out;
   border-bottom: 1px solid #5a698f;
   padding-left: 16px;
@@ -31,6 +32,7 @@ input {
   caret-color: #fc4747;
 }
 input:focus {
+  appearance: none;
   outline: none;
   color: white;
   border-bottom: 1px solid #fff;
@@ -42,4 +44,14 @@ input:focus {
 .error-text {
   color: #fc4747;
   font-size: 0.9em;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  background-color: transparent !important;
+  color: white !important;
+  -webkit-text-fill-color: white !important;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+  transition: background-color 9999s ease-in-out 0s;
 }
